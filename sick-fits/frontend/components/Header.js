@@ -1,13 +1,13 @@
-import Nav from './Nav';
 import Link from 'next/link';
 import styled from 'styled-components';
-import Router from 'next/router';
 import NProgress from 'nprogress';
+import Router from 'next/router';
+import Nav from './Nav';
+import Cart from './Cart';
 
 Router.onRouteChangeStart = () => {
     NProgress.start();
 };
-
 Router.onRouteChangeComplete = () => {
     NProgress.done();
 };
@@ -43,11 +43,10 @@ const StyledHeader = styled.header`
         justify-content: space-between;
         align-items: stretch;
         @media (max-width: 1300px) {
-            grid-template-columns: 1fr;
-            justify-content: center;
+        grid-template-columns: 1fr;
+        justify-content: center;
         }
     }
-
     .sub-bar {
         display: grid;
         grid-template-columns: 1fr auto;
@@ -58,18 +57,18 @@ const StyledHeader = styled.header`
 const Header = () => (
     <StyledHeader>
         <div className="bar">
-            <Logo>
-                <Link href="/">
-                    <a>Sick Fits</a>    
-                </Link>
-            </Logo>
-            <Nav />
+        <Logo>
+            <Link href="/">
+            <a>Sick Fits</a>
+            </Link>
+        </Logo>
+        <Nav />
         </div>
         <div className="sub-bar">
-            <p>Search</p>
+        <p>Search</p>
         </div>
-        <div>Cart</div>
+        <Cart />
     </StyledHeader>
-)
+);
 
 export default Header;
